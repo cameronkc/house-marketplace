@@ -107,7 +107,6 @@ function CreateListing() {
 
       if (location === undefined || location.includes("undefined")) {
         setLoading(false);
-        toast.error("Please enter a correct address");
         return;
       }
     } else {
@@ -156,7 +155,7 @@ function CreateListing() {
       });
     };
 
-    const imgUrls = await Promise.all(
+    const imageUrls = await Promise.all(
       [...images].map((image) => storeImage(image))
     ).catch(() => {
       setLoading(false);
@@ -166,7 +165,7 @@ function CreateListing() {
 
     const formDataCopy = {
       ...formData,
-      imgUrls,
+      imageUrls,
       geolocation,
       timestamp: serverTimestamp(),
     };
